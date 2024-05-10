@@ -16,8 +16,20 @@
                                 {{ __('Products') }}
                             </span>
 
+                            <div class="float-right">
+                                <a href="{{ route('employees.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Tabla empleados') }}
+                                </a>
+                              </div>
+
+                              <div class="float-right">
+                                <a href="{{ route('customers.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Tabla clientes') }}
+                                </a>
+                              </div>
+
                              <div class="float-right">
-                                <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('customers.create') }}" class="btn btn-success btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -66,15 +78,13 @@
 										<td >{{ $product->ReorderLevel }}</td>
 										<td >{{ $product->Discontinued }}</td>
 
-                                            {{-- <td>
-                                                <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('products.show', $product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('products.edit', $product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                            <td>
+                                                
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
                                                 </form>
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
