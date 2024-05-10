@@ -35,13 +35,11 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CustomerRequest $request): RedirectResponse
-    {
-        Customer::create($request->validated());
-
-        return Redirect::route('customers.index')
-            ->with('success', 'Customer created successfully.');
-    }
+    public function store(Request $request)
+{
+    $customer = Customer::create($request->all());
+    return redirect()->route('customers.index')->with('success', 'Customer created successfully!');
+}
 
     /**
      * Display the specified resource.
